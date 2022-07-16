@@ -1,2 +1,2 @@
 
-web : gunicorn MUSICPLAYER.wsgi 
+web : gunicorn musicplayer.wsgi 
