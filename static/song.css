@@ -1,0 +1,30 @@
+body {
+    background-color: rgba(0, 0, 0, 0.898);
+    color: white;
+}
+#navbar a {
+    color: white;
+}
+.list-group-item{
+    background-color: transparent;
+}
+.yy:hover .list-group-item{
+    background-color: mediumseagreen;
+}
+.fa-play-circle {
+    position: relative;
+    /* padding-left: 45%; */
+    font-size: 2vw;
+    display: inline;
+    position: relative;
+    color: white;
+}
+
+.fa-pause-circle {
+    position: relative;
+    /* padding-left: 45%; */
+    font-size: 2vw;
+    display: inline;
+    position: relative;
+    color: white;
+}

@@ -1,0 +1,254 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <script src="https://kit.fontawesome.com/76f550729b.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'song.css'%}">
+    <link rel="stylesheet" href="{% static 'ap.css'%}">
+    <style>
+        .main {
+            margin-bottom: 5vw;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Manee</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container pto-4" id="top-info">
+        <div class="clearfix">
+            <img src="{% static 'banner.png'%}" class="float-md-start mb-3 ms-md-3" id="top-info-image" alt="...">
+            <p class="sizeh-50">This Month’s<br>
+                Record Breaking Albums !</p>
+            <p class="fso-5">
+                Dream your moments, Until I Met You, Gimme Some Courage, Dark Alley, One More Of A Stranger, Endless
+                Things, <br>The Heartbeat Stops, Walking Promises, Desired Games and many more..</p>
+            <button type="button" class="btn btn-outline-success btn-lg meo-3 mto-5" id="playme">
+                <h5>Play</h5>
+            </button>
+        </div>
+    </div>
+    <div class="pt-5 pb-5">
+        <div class="text-center p-3 me-5">
+            <h3 class="fs-1 ps-5">Songs</h3>
+        </div>
+        <div class="pb-5 pt-5">
+            <ul class="list-group list-group-flush mos-3 main">
+                {% for i in songs%}
+                <div class="yy">
+                    <li class="list-group-item  text-dark mo-3 d-flex justify-content-between">
+                        <div style="color:white;">{{forloop.counter}}</div>
+                        <div style="color:white;">{{i.name}}</div>
+                        <div><i class="fas fa-play-circle hh" id={{i.id}}></i></div>
+                    </li>
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="fixed-botom  justify-content-center" id="foot">
+        <div class="d-flex-row">
+            <div>
+                <input type="range" name="range" min="0" max="100" value="0" id='my'>
+            </div>
+            <div class="pe-3 ps-3">
+                <div class="row">
+                    <div class="col-7 text-start">
+                        <h3 class="fs-6"><span id="songcurrentduration" class="fs-6">0.00</span></h3>
+                    </div>
+                    <div class="col-5 text-end" style="right: 0;">
+                        <h3 class="fs-6"><span id="songduration" class="fs-6">0.00</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid justify-content-between d-flex">
+            <div class=" d-flex col-md-3">
+                <img src="{% static 'music.gif'%}" class="img-fluid" id="giff">
+                <h3 class="fso-6 text-center"><span id="songname"></span></h3>
+            </div>
+            <div class="d-flex col-md-6 justify-content-center controls">
+                <i class="fa-solid fa-backward-step mo-3 pso-5 fao-2x" id="previous"></i>
+                <i class="fa-solid fa-play mo-3 fao-2x" id="play"></i>
+                <i class="fa-solid fa-forward-step mo-3  fao-2x" id="next"></i>
+
+            </div>
+            <div class=" d-flex justify-content-center col-md-3">
+                <i class="fa-solid fa-repeat mo-3 pso-5 faoo-2x"></i>
+                <i class="fa-solid fa-shuffle mo-3  me-5 faoo-2x"></i>
+            </div>
+        </div>
+    </div>
+    <script>
+        songss = [{% for i in songs %}{ song: "/media/{{i.song}}", d : '{{i.id}}', name : '{{i.name}}' }, {% endfor %} ]
+        let play = document.getElementById('play')
+        let playme = document.getElementById('playme')
+        let next = document.getElementById('next')
+        let back = document.getElementById('previous')
+        let myprogressbar = document.getElementById('my')
+        let songname = document.getElementsByClassName('songname')
+        var songsIndex = 0
+        let audioElement = new Audio("/media/{{songs.0.song}}");
+        let length1 = Object.keys(songss).length
+        let giff = document.getElementById('giff')
+        let namee = (songss[songsIndex].name)
+        document.getElementById('songname').innerHTML = '<span id="songname">' + namee + '</span>'
+        playme.addEventListener("click", () => {
+            if (audioElement.paused) {
+                audioElement = new Audio(songss[songsIndex].song);
+                audioElement.play()
+                play.classList.remove('fa-play')
+                play.classList.add('fa-pause')
+                let namee = (songss[songsIndex].name)
+                document.getElementById('songname').innerHTML = '<span id="songname">' + namee + '</span>'
+            }
+            else {
+                audioElement.pause()
+                play.classList.remove('fa-pause')
+                play.classList.add('fa-play')
+                makepause();
+            }
+            progresbar()
+        })
+        play.addEventListener("click", () => {
+            if (audioElement.paused) {
+                audioElement = new Audio(songss[songsIndex].song);
+                audioElement.play()
+                play.classList.remove('fa-play')
+                play.classList.add('fa-pause')
+                console.log((songss[songsIndex].name))
+                let namee = (songss[songsIndex].name)
+                let imagee = (songss[songsIndex].image)
+                document.getElementById('songname').innerHTML = namee
+                giff.style.opacity = 1
+            }
+            else {
+                audioElement.pause()
+                play.classList.remove('fa-pause')
+                play.classList.add('fa-play')
+                makepause()
+                giff.style.opacity = 0
+            }
+            progresbar()
+        })
+        progresbar = () => {
+            audioElement.addEventListener('timeupdate', () => {
+                progress = parseInt((audioElement.currentTime / audioElement.duration) * 100)
+                myprogressbar.value = progress;
+                let duration = Number(audioElement.duration / 60)
+                let duration1 = duration.toFixed(2)
+                let current = Number(audioElement.currentTime / 60)
+                let current1 = current.toFixed(2)
+                document.getElementById('songcurrentduration').innerHTML = '<span id="songcurrentduration" class="fs-6">' + current1 + '</span>'
+                document.getElementById('songduration').innerHTML = '<span id="songduration" class="fs-6">' + duration1 + '</span>'
+
+            })
+            myprogressbar.addEventListener('change', () => {
+                audioElement.currentTime = (myprogressbar.value * audioElement.duration) / 100;
+            })
+        }
+        next.addEventListener("click", () => {
+            if (songsIndex == length1 - 1) {
+                audioElement.pause()
+                songsIndex = 0;
+                audioElement = new Audio(songss[songsIndex].song);
+                audioElement.play();
+                play.classList.remove('fa-play');
+                play.classList.add("fa-pause")
+                let namee = (songss[songsIndex].name)
+                document.getElementById('songname').innerHTML = '<span id="songname">' + namee + '</span>'
+            }
+            else {
+                audioElement.pause()
+                songsIndex += 1;
+                audioElement = new Audio(songss[songsIndex].song);
+                audioElement.play();
+                play.classList.remove('fa-play');
+                play.classList.add("fa-pause")
+                let namee = (songss[songsIndex].name)
+                document.getElementById('songname').innerHTML = '<span id="songname">' + namee + '</span>'
+            }
+            progresbar()
+
+        })
+        previous.addEventListener("click", () => {
+            if (songsIndex == 0) {
+                audioElement.pause()
+                songsIndex = length1 - 1;
+                audioElement = new Audio(songss[songsIndex].song);
+                audioElement.play();
+                play.classList.remove('fa-play');
+                play.classList.add("fa-pause")
+                let namee = (songss[songsIndex].name)
+                document.getElementById('songname').innerHTML = '<span id="songname">' + namee + '</span>'
+            }
+            else {
+                audioElement.pause()
+                songsIndex -= 1;
+                audioElement = new Audio(songss[songsIndex].song);
+                audioElement.play();
+                play.classList.remove('fa-play');
+                play.classList.add("fa-pause")
+                let namee = (songss[songsIndex].name)
+                document.getElementById('songname').innerHTML = '<span id="songname">' + namee + '</span>'
+            }
+            progresbar()
+        })
+        Array.from(document.getElementsByClassName("hh")).forEach(function (element) {
+            element.addEventListener("click", (e) => {
+                audioElement.pause();
+                play.classList.remove('fa-pause')
+                play.classList.add('fa-play')
+                inde = (e.target.id)
+                let songsIndex = songss.findIndex(object => {
+                    return object.d === inde;
+                });
+                // audioElement.currentTime=0
+                audioElement = new Audio(songss[songsIndex].song);
+                audioElement.play();
+                makepause()
+                e.target.classList.remove("fa-play-circle")
+                e.target.classList.add("fa-pause-circle")
+                play.classList.remove('fa-play')
+                play.classList.add('fa-pause')
+                let namee = (songss[songsIndex].name)
+                document.getElementById('songname').innerHTML = '<span id="songname">' + namee + '</span>'
+                progresbar()
+                giff.style.opacity = 1
+            })
+        })
+        const makepause = () => {
+            Array.from(document.getElementsByClassName("hh")).forEach(function (e) {
+                e.classList.remove(`fa-pause-circle`);
+                e.classList.add(`fa-play-circle`);
+            }
+            )
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
