@@ -1,0 +1,538 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Font Awesome 5 Brands;
+}
+.navbar-toggler {
+    color:white;
+    background-color:rgb(255, 255, 255);
+}
+.navbar_toggle{
+    position: fixed;
+    background-color: white;
+}
+.fa-play-circle {
+    position: relative;
+    /* padding-left: 45%; */
+    font-size: 2vw;
+    display: inline;
+    position: relative;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.fa-pause-circle {
+    position: relative;
+    /* padding-left: 45%; */
+    font-size: 2vw;
+    display: inline;
+    position: relative;
+    color: white;
+}
+
+#play {
+    padding: 0 0.6vw;
+}
+
+#my {
+    width: 100%;
+    margin: -0.1vw;
+    top: -0.2vw;
+    position: relative;
+}
+
+#menu {
+    display: none;
+}
+
+#mainmenu {
+    display: none;
+}
+
+#songname {
+    position: relative;
+    display: inline;
+    font-size: 1.5vw;
+    font-family: cursive;
+    left: 2vw;
+}
+
+#songcurrentduration {
+    display: inline;
+    position: relative;
+
+    font-size: 1.3vw;
+    z-index: 3;
+}
+
+#songduration {
+    display: inline;
+    position: relative;
+
+    font-size: 1.3vw;
+    z-index: 3;
+}
+
+body {
+    background-color: rgba(0, 0, 0, 0.898);
+    color: white;
+}
+
+/* body {
+    background-color:aqua;
+    color: white;
+} */
+
+.sizeh-50 {
+    font-size: 36px;
+    line-height: 60px;
+    font-weight: normal;
+    color: white;
+    font-family: 'Hammersmith One', sans-serif;
+    text-shadow: 0 -1px 0 white;
+    position: relative;
+    font-family: 'Questrial', sans-serif;
+
+}
+
+
+/* **************************************top-info**************************************** */
+#top-info-image {
+    height: 500px;
+    width: 400px;
+}
+
+#navbar a {
+    color: white;
+}
+
+/* ************************************* */
+#song-generes {
+    margin-bottom: 5vw;
+}
+
+#Tracks .hh,
+#song-generes .hh,
+#singers .hh {
+    position: absolute;
+    top: 45%;
+    left: 40%;
+    display: none;
+    transition: .5s;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: auto;
+}
+
+#Tracks .card:hover .hh,
+#song-generes .card:hover .hh,
+#singers .card:hover .hh {
+    display: block;
+}
+
+.card-img-overlay {
+    background-color: transparent;
+}
+
+#Tracks .card:hover .card-img-overlay,
+#singers .card:hover .card-img-overlay {
+    background-image: linear-gradient(rgba(0, 251, 255, 0.127), rgba(0, 221, 255, 0.332), rgba(0, 204, 255, 0.689));
+    opacity: 0.8;
+    transition: .4s;
+}
+
+#song-generes .card:hover .card-img-overlay {
+    background-image: linear-gradient(rgba(0, 251, 255, 0.258), rgba(0, 221, 255, 0.486), rgba(0, 204, 255, 0.772));
+    opacity: 1;
+    transition: .4s;
+}
+
+.list-group-item {
+    background-color: transparent;
+}
+
+.yy:hover .list-group-item {
+    background-color: mediumseagreen;
+}
+
+
+#foot2 {
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: none;
+}
+
+.ps-5 {
+    padding-left: 3rem;
+}
+
+#Tracks .cardp-1,
+#singers .cardp-1 {
+    padding: 0.5vw;
+}
+
+.pso-4 {
+    padding-left: 1vw;
+}
+
+.peo-4 {
+    padding-right: 1vw;
+}
+
+.peo-4 {
+    padding-right: 1vw;
+}
+
+.pto-4 {
+    padding-top: 3vw;
+}
+
+.pbo-1 {
+    padding-bottom: 1vw;
+}
+
+.meo-3 {
+    margin-left: 2vw;
+}
+
+.mso-3 {
+    margin-left: 2vw;
+}
+
+.mo-2 {
+    margin-top: 5vw;
+    margin-bottom: 2vw;
+}
+
+.mto-5 {
+    margin-top: 4vw;
+}
+
+#top-info .fso-5 {
+    font-size: 0.8vw;
+
+}
+
+.mos-3 {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.mo-3 {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+.fixed-botom {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.fao-2x {
+    font-size: 3em;
+}
+
+.faoo-2x {
+    font-size: 2em;
+}
+
+.pso-5 {
+    padding-left: 3rem;
+}
+
+.peo-5 {
+    padding-right: 3rem;
+}
+
+.songcurrentduration {
+    position: relative;
+    left: 1vw;
+}
+
+.songduration {
+    position: relative;
+    right: -94vw;
+}
+
+#giff {
+    height: 70px;
+    width: 250px;
+    position: relative;
+    top: -1vw;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.controls {
+    position: relative;
+    left: -4vw;
+}
+
+.cardtitle h5 {
+    padding: 4vw;
+}
+#foot{
+    background-color: rgb(0, 0, 0);
+}
+.mp-4{
+    margin:0
+}
+@media screen and (max-width: 767px) {
+    .ps-5 {
+        padding-left: 0;
+    }
+    .mp-4{
+        margin: 1.5rem
+    }
+    .seeallbutton {
+        position: relative;
+        right: -41vw;
+        /* display: inline; */
+    }
+
+    .seeallheading {
+        position: relative;
+        left: 1vw;
+    }
+
+    #top-info-image {
+        height: 400px;
+        width: 500px;
+        position: relative;
+        left: 5vw;
+    }
+
+    .controls {
+        position: relative;
+        left: 0vw;
+    }
+
+    .mo-3 {
+        margin: 1vw;
+    }
+
+    .faoo-2x {
+        font-size: 4vw;
+        position: relative;
+        left: 2vw;
+    }
+
+    .fao-2x {
+        font-size: 4vw;
+    }
+
+    .pso-5 {
+        padding-left: 5vw;
+    }
+
+    .peo-5 {
+        padding-right: 3vw;
+    }
+
+    #giff {
+        display: none;
+    }
+
+    .fso-6 {
+        position: relative;
+        top: -0.5vw;
+    }
+
+    h5 {
+        display: block;
+        font-size: 0.83em;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+
+    #Tracks .cardp-1,
+    #singers .cardp-1 {
+        padding: 0vw;
+    }
+
+    #Tracks h5,
+    #singers h5 {
+        font-size: 10px;
+    }
+
+    .sizeh-50 {
+        font-size: 26px;
+        line-height: 40px;
+    }
+
+    #song-generes h5 {
+        font-size: 2vw;
+        margin-bottom: 0;
+    }
+
+    #top-info h5 {
+        font-size: 2.5vw;
+        margin-bottom: 0;
+    }
+
+    .mo-2 {
+        margin-top: 4vw;
+        margin-bottom: 4vw;
+    }
+
+    #top-info .fso-5 {
+        margin-bottom: 1.5vw;
+        font-size: 3vw;
+    }
+
+    .mto-5 {
+        margin-top: 1vw;
+    }
+
+    .pto-4 {
+        padding-top: 1vw;
+    }
+
+    .meo-3 {
+        margin-left: 2vw;
+    }
+
+    .mso-3 {
+        margin-left: 2vw;
+    }
+
+    .fa-play-circle {
+        position: relative;
+        /* padding-left: 45%; */
+        font-size: 4vw;
+        display: inline;
+        position: relative;
+        color: white;
+    }
+
+    .fa-pause-circle {
+        position: relative;
+        /* padding-left: 45%; */
+        font-size: 4vw;
+        display: inline;
+        position: relative;
+        color: white;
+    }
+
+}
+@media screen and (max-width: 480px) {
+    .controls {
+        position: relative;
+        left: 2vw;
+        top: -4vw;
+    }
+
+    .sizeh-50 {
+        font-size: 26px;
+        line-height: 40px;
+    }
+
+    #top-info-image {
+        height: 350px;
+        width: 350px;
+        position: relative;
+    }
+
+    .faoo-2x {
+        font-size: 4vw;
+        position: relative;
+        left: 5vw;
+    }
+
+    .fao-2x {
+        font-size: 8vw;
+    }
+
+    .fso-6 {
+        position: relative;
+        top: 0vw;
+        font-size: 3vw;
+    }
+
+    #Tracks h5,
+    #songlist h5,
+    #singers h5 {
+        font-size: 10px;
+    }
+
+    #Tracks .fa-angle-down,
+    #singers .fa-angle-down,
+    #songlist .fa-angle-down {
+        font-size: 6px;
+    }
+
+    #Tracks .btn,
+    #singers .btn,
+    #songlist .btn {
+        --bs-btn-padding-x: 0.2rem;
+        --bs-btn-padding-y: 0.05rem;
+
+        --bs-btn-font-size: 1rem;
+        padding: 0 0;
+
+
+    }
+
+    .mos-3 {
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .faoo-2x {
+        font-size: 6vw;
+        position: relative;
+        left: 5vw;
+    }
+
+    #Tracks h5,
+    #songlist h5,
+    #singers h5 {
+        font-size: 7px;
+    }
+
+    .fao-2x {
+        font-size: 10vw;
+    }
+
+    #top-info-image {
+        height: 250px;
+        width: 250px;
+        position: relative;
+        left: 0vw;
+    }
+
+    h5 {
+        display: block;
+        font-size: 0.53em;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+
+    .mos-3 {
+        margin-left: 0rem;
+        margin-right: 0rem;
+    }
+}
+
+
+
