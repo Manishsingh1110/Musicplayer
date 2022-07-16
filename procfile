@@ -1,2 +1,2 @@
 
-web: gunicorn playersong.wsgi 
+web : gunicorn playersong.wsgi 
